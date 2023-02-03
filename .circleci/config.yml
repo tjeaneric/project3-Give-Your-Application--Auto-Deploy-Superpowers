@@ -79,10 +79,11 @@ jobs:
       - restore_cache:
           keys: [frontend-build]
       - run:
-          name: scan frontend for security vulnerabilities
+          name: scan frontend packages for security vulnerabilities
           command: |
             cd frontend
             npm install
+            npm audit fix --audit-level=critical
             npm audit --audit-level=critical
 
   scan-backend:
@@ -93,10 +94,11 @@ jobs:
       - restore_cache:
           keys: [backend-build]
       - run:
-          name: scan backend for security vulnerabilities
+          name: scan backend packages for security vulnerabilities
           command: |
             cd backend
             npm install
+            npm audit fix --audit-level=critical
             npm audit --audit-level=critical
 
 workflows:
