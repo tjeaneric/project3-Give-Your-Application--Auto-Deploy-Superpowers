@@ -9,6 +9,7 @@ log.txt
 .vscode/
 npm-debug.log*
 
+.circleci/config-sample.yml
 .idea/
 .ionic/
 .sourcemaps/
