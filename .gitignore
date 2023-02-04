@@ -69,3 +69,6 @@ node_modules
 
 .env
 dist
+
+# key pairs
+*.pem
