@@ -280,7 +280,7 @@ jobs:
           name: Install dependencies
           command: |
             cd frontend
-            npm instal
+            npm install
       - run:
           name: Get backend url
           command: |
@@ -310,7 +310,7 @@ jobs:
       - restore_cache:
           keys: [backend-build]
       - add_ssh_keys:
-          fingerprints: ["d5:a4:0d:bd:36:a7:d2:03:2c:10:93:6a:7c:d1:a7:26"]
+          fingerprints: ["07:f4:99:6e:bc:aa:7a:d6:08:b7:36:3a:ad:2f:a8:84"]
       - attach_workspace:
           at: ~/
       - run:
