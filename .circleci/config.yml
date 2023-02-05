@@ -52,6 +52,7 @@ commands:
 
             # Delete backend stack
             aws cloudformation delete-stack --stack-name udapeople-backend-<< parameters.Workflow_ID >>
+
   revert-migrations:
     description: Revert the last migration, if any were executed during the current workflow
     parameters:
@@ -412,7 +413,7 @@ jobs:
       - install_awscli
       - install_nodejs
       - run:
-          name: Get old stack workflow id
+          name: Remove old stacks and files
           command: |
             export STACKS=($(aws cloudformation list-stacks \
                 --query "StackSummaries[*].StackName" \
@@ -421,9 +422,7 @@ jobs:
 
             export OldWorkflowID=$(curl --insecure https://kvdb.io/${KVDB_BUCKET}/old_workflow_id)
             echo Old Workflow ID: $OldWorkflowID
-      - run:
-          name: Remove old stacks and files
-          command: |
+
             if [[ "${STACKS[@]}" =~ "${OldWorkflowID}" ]]
             then
               aws s3 rm "s3://udapeople-${OldWorkflowID}" --recursive
@@ -432,6 +431,7 @@ jobs:
             fi
       - destroy-environment
       - revert-migrations
+
 workflows:
   my-workflow:
     jobs:
