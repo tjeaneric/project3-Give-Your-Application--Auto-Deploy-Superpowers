@@ -1,0 +1,5 @@
+URL01=https://github.com/tjeaneric/project3-Give-Your-Application--Auto-Deploy-Superpowers
+URL02=http://udapeople-5238bdf.s3-website-us-east-1.amazonaws.com
+URL03=http://d3854d8ss4t5u6.cloudfront.net/
+URL04=http://52.55.124.217:3030/api/status
+URL05=http://ec2-3-232-132-32.compute-1.amazonaws.com:9090
